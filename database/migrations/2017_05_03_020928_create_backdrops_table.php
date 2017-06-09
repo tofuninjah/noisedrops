@@ -45,7 +45,7 @@ class CreateBackdropsTable extends Migration
                 'id_drops' => 3
             ],
             [
-                'name' => 'Cuban and Mexican Diner',
+                'name' => 'Cuban / Mexican Diner',
                 'link' => '/images/hero/kitchen-1.jpg',
                 'description' => 'Breakfast or lunch on a sunday.',
                 'id_drops' => 4

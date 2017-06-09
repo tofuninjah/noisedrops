@@ -37,7 +37,7 @@ class CreateDropsTable extends Migration
                 'filename' => 'https://s3-us-west-2.amazonaws.com/noisedrops/tunnels.lunch.mp3'
             ],
             [
-                'name' => 'Cuban and Mexican Diner',
+                'name' => 'Cuban / Mexican Diner',
                 'filename' => 'https://s3-us-west-2.amazonaws.com/noisedrops/cuban-mexican-diner.mp3'
             ],
             [
