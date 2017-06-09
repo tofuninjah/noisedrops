@@ -55,6 +55,12 @@ class CreateBackdropsTable extends Migration
                 'link' => '/images/hero/basketball-1.jpg',
                 'description' => 'Late night pickup game.',
                 'id_drops' => 5
+            ],
+            [
+                'name' => 'Night out to Dinner',
+                'link' => '/images/hero/restaurant-1.jpg',
+                'description' => 'Grab a reservation and bring your appitite.',
+                'id_drops' => 6
             ]
         ]);
     }

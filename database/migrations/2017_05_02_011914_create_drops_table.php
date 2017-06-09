@@ -43,6 +43,10 @@ class CreateDropsTable extends Migration
             [
                 'name' => 'Shirts vs. Skins',
                 'filename' => 'https://s3-us-west-2.amazonaws.com/noisedrops/basketball.mp3'
+            ],
+            [
+                'name' => 'Night out to Dinner',
+                'filename' => 'https://s3-us-west-2.amazonaws.com/noisedrops/houstons.mp3'
             ]
         ]);
     }
