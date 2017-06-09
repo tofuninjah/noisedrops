@@ -25,12 +25,24 @@ class CreateDropsTable extends Migration
 
         DB::table('drops')->insert([
             [
-                'name' => 'Tunnels Lunch',
-                'filename' => 'raindrops-in-car.mp3'
+                'name' => 'Coffee Shop',
+                'filename' => 'https://s3-us-west-2.amazonaws.com/noisedrops/coffee.shop1.mp3'
             ],
             [
                 'name' => 'Raindrops on Car',
-                'filename' => 'tunnels.lunch.mp3'
+                'filename' => 'https://s3-us-west-2.amazonaws.com/noisedrops/raindrops-in-car.mp3'
+            ],
+            [
+                'name' => 'Lunch in the Tunnels',
+                'filename' => 'https://s3-us-west-2.amazonaws.com/noisedrops/tunnels.lunch.mp3'
+            ],
+            [
+                'name' => 'Cuban and Mexican Diner',
+                'filename' => 'https://s3-us-west-2.amazonaws.com/noisedrops/cuban-mexican-diner.mp3'
+            ],
+            [
+                'name' => 'Shirts vs. Skins',
+                'filename' => 'https://s3-us-west-2.amazonaws.com/noisedrops/basketball.mp3'
             ]
         ]);
     }

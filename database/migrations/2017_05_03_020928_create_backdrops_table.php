@@ -24,6 +24,39 @@ class CreateBackdropsTable extends Migration
             $table->foreign('id_drops')->references('id')->on('drops');
             $table->timestamps();
         });
+
+        DB::table('backdrops')->insert([
+            [
+                'name' => 'Coffee Shop',
+                'link' => '/images/hero/coffee-4.jpg',
+                'description' => 'A Sunday afternoon brew.',
+                'id_drops' => 1
+            ],
+            [
+                'name' => 'Rain drops on Car',
+                'link' => '/images/hero/car-rain-1.jpg',
+                'description' => 'Pitter patter of rain falling on a parked car.',
+                'id_drops' => 2
+            ],
+            [
+                'name' => 'Lunch in the Tunnels',
+                'link' => '/images/hero/tunnels-1.jpg',
+                'description' => 'Lunch in the Downtown tunnels.',
+                'id_drops' => 3
+            ],
+            [
+                'name' => 'Cuban and Mexican Diner',
+                'link' => '/images/hero/kitchen-1.jpg',
+                'description' => 'Breakfast or lunch on a sunday.',
+                'id_drops' => 4
+            ],
+            [
+                'name' => 'Shirts vs. Skins',
+                'link' => '/images/hero/basketball-1.jpg',
+                'description' => 'Late night pickup game.',
+                'id_drops' => 5
+            ]
+        ]);
     }
 
     /**

@@ -1,153 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Noisedrops</title>
-    <meta name="author" content="name">
-    <meta name="description" content="description here">
-    <meta name="keywords" content="keywords,here">
-    <link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon">
+    <meta name="author" content="Chung Kang">
+    <meta name="description" content="Noisedrops generates ambient sounds that allow you to concentrate or focus by drowning out distracting noises.  May also be used for relaxation.">
+    <meta name="keywords" content="ASMR, productivity, concentration, white noise, background noise, noise generator">
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/vnd.microsoft.icon">
     <link rel="stylesheet" href="/css/app.css" type="text/css">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
-<body>
-    <div class="container" id="app">
+<body class="backdrop" style="background: url(/images/hero/pastels-test.jpg) no-repeat center center fixed; background-size: cover; background-color: #E9EFD4;">
+    <div id="app">
+        <drop-header></drop-header>
 
-        <example></example>
+        <transition name="fade" mode="out-in">
+            <drops v-if="show"></drops>
+            <drop :drop="drop" v-else></drop>
+        </transition>
 
-        <div class="row column">
-            <a-player :music="{
-            title: 'Pick up game',
-            author: 'Chung Kang',
-            url: 'https://s3-us-west-2.amazonaws.com/noisedrops/basketball.mp3',
-            pic: '/images/noisedrops-light.svg',
-            lrc: '[00:00.00]lrc here\n[00:01.00]aplayer'
-            }"></a-player>
-        </div>
-
-        <div class="row column">
-            <a-player :music="{
-            title: 'Pick up game',
-            author: 'Chung Kang',
-            url: 'https://s3-us-west-2.amazonaws.com/noisedrops/basketball.mp3',
-            pic: '/images/noisedrops-light.svg',
-            lrc: '[00:00.00]lrc here\n[00:01.00]aplayer'
-            }"></a-player>
-        </div>
-
-        <header>
-            <div class="row expanded">
-                <div class="column small-12 medium-6">
-                    <img src="/images/noisedrops-light.svg" class="header__logo" alt="Noisedrops Logo"/>
-                    <p>Drop some background noise to free yourself of distractions.</p>
-                </div>
-                <div class="column small-12 medium-6">
-                    <div style="border: 2px dashed green;">Gad</div>
-                </div>
-            </div>
-        </header>
-
-        <div class="cards">
-            <div class="row small-up-1 medium-up-3 large-up-4">
-                <div class="column">
-                    <div class="card">
-                        <a href="javascript:;;" class="card__play--link show-for-medium">
-                            <div class="card__main">
-                                <div class="card__play util-absolute">
-                                    <i class="fa fa-play-circle fa-2x" aria-hidden="true"></i>
-                                </div>
-                                <img src="//placekitten.com/500/325">
-                            </div>
-                        </a>
-                        <div class="card-section">
-                            <div class="show-for-small-only text-center">
-                                <i class="fa fa-play-circle fa-3x" aria-hidden="true"></i>
-                                <hr>
-                            </div>
-                            <h4 class="card__title">Coffee Shop
-                                <a class="card__link" href="javascript:;;"><i class="fa fa-commenting fa-lg" aria-hidden="true"></i></a>
-                            </h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="card">
-                        <a href="javascript:;;" class="card__play--link show-for-medium">
-                            <div class="card__main">
-                                <div class="card__play util-absolute">
-                                    <i class="fa fa-play-circle fa-2x" aria-hidden="true"></i>
-                                </div>
-                                <img src="//placekitten.com/500/325">
-                            </div>
-                        </a>
-                        <div class="card-section">
-                            <div class="show-for-small-only text-center">
-                                <i class="fa fa-play-circle fa-3x" aria-hidden="true"></i>
-                                <hr>
-                            </div>
-                            <h4 class="card__title">
-                                Coffee Shop
-                                <a class="card__link" href="javascript:;;"><i class="fa fa-commenting fa-lg" aria-hidden="true"></i></a>
-                            </h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="card">
-                        <a href="javascript:;;" class="card__play--link show-for-medium">
-                            <div class="card__main">
-                                <div class="card__play util-absolute">
-                                    <i class="fa fa-play-circle fa-2x" aria-hidden="true"></i>
-                                </div>
-                                <img src="//placekitten.com/500/325">
-                            </div>
-                        </a>
-                        <div class="card-section">
-                            <div class="show-for-small-only text-center">
-                                <i class="fa fa-play-circle fa-3x" aria-hidden="true"></i>
-                                <hr>
-                            </div>
-                            <h4 class="card__title">Coffee Shop
-                                <a class="card__link" href="javascript:;;"><i class="fa fa-commenting fa-lg" aria-hidden="true"></i></a>
-                            </h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="card">
-                        <a href="javascript:;;" class="card__play--link show-for-medium">
-                            <div class="card__main">
-                                <div class="card__play util-absolute">
-                                    <i class="fa fa-play-circle fa-2x" aria-hidden="true"></i>
-                                </div>
-                                <img src="//placekitten.com/500/325">
-                            </div>
-                        </a>
-                        <div class="card-section">
-                            <div class="show-for-small-only text-center">
-                                <i class="fa fa-play-circle fa-3x" aria-hidden="true"></i>
-                                <hr>
-                            </div>
-                            <h4 class="card__title">Coffee Shop
-                                <a class="card__link" href="javascript:;;"><i class="fa fa-commenting fa-lg" aria-hidden="true"></i></a>
-                            </h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <footer>
-            <div class="row expanded align-center footer__section">
-                <div class="column">
-                    <a href="javascript:;;" class="footer__link"><i class="fa fa-google-plus-square fa-2x footer__icon" aria-hidden="true"></i></a>
-                    <a href="javascript:;;" class="footer__link"><i class="fa fa-facebook-square fa-2x footer__icon" aria-hidden="true"></i></a>
-                    <a href="javascript:;;" class="footer__link"><i class="fa fa-twitter-square fa-2x footer__icon" aria-hidden="true"></i></a>
-                    <a href="javascript:;;" class="footer__link"><i class="fa fa-envelope-square fa-2x footer__icon" aria-hidden="true"></i></a>
-                </div>
-            </div>
-        </footer>
+        <drop-footer></drop-footer>
     </div>
+
     <script src="/js/app.js"></script>
 </body>
 </html>
