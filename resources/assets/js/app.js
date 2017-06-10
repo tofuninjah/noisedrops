@@ -22,16 +22,12 @@ import Icon from 'vue-awesome/components/Icon';
 import Drops from './components/Drops.vue';
 import Drop from './components/Drop.vue';
 import VueLazyload from 'vue-lazyload';
-import VueAnalytics from 'vue-analytics'
 
 Vue.component('Icon', Icon);
 Vue.use(VueLazyload, {
   preLoad: 1.3,
   loading: '/images/loading.gif',
   attempt: 1
-})
-Vue.use(VueAnalytics, {
-  id: 'UA-100788423-1'
 })
 
 require('vue2-animate/dist/vue2-animate.min.css');

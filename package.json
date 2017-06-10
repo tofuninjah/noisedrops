@@ -17,7 +17,6 @@
     "laravel-mix": "0.*",
     "lodash": "^4.17.4",
     "vue": "^2.1.10",
-    "vue-analytics": "^4.1.2",
     "vue-awesome": "^2.3.1",
     "vue-howler": "^0.2.0",
     "vue-lazyload": "^1.0.4",
