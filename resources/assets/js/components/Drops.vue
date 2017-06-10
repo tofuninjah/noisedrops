@@ -20,7 +20,7 @@
                     <div class="card-block">
                         <h4 class="card-title">{{ drop.name }}</h4>
                         <p class="card-text">{{ drop.description }}</p>
-                        <audio-player :sources="[drop.filename]" :single="false" :loop="true"></audio-player>
+                        <audio-player :sources="[drop.filename]" :single="false" :loop="true" :preload="false"></audio-player>
                     </div>
                 </div>
             </div>
