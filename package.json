@@ -18,7 +18,7 @@
     "lodash": "^4.17.4",
     "vue": "^2.1.10",
     "vue-awesome": "^2.3.1",
-    "vue-howler": "^0.2.0",
+    "vue-howler": "^0.3.0",
     "vue-lazyload": "^1.0.4",
     "vue-slider-component": "^2.3.1",
     "vue-social-sharing": "^2.2.0",

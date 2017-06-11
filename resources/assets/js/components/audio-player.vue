@@ -2,20 +2,20 @@
     <div>
         <div v-if="!single">
             <div class="d-flex justify-content-around">
-                <a href="javascript:;;" @click="togglePlayback" class="btn btn-secondary btn-play drop-control" v-if="playing">
+                <a href="javascript:;;" @click="togglePlayHandler" class="btn btn-secondary btn-play drop-control text-muted" v-if="playing">
                     <icon name="pause-circle" scale="2" @click="togglePlayHandler"></icon>
                 </a>
-                <a href="javascript:;;" @click="togglePlayHandler" class="btn btn-secondary btn-play drop-control" v-else>
+                <a href="javascript:;;" @click="togglePlayHandler" class="btn btn-secondary btn-play drop-control text-muted" v-else>
                     <icon name="play-circle" scale="2"></icon>
                 </a>
-
+                <!--
                 <a href="javascript:;;" class="btn btn-secondary btn-volume drop-control" @click="lowerVolume()">
                     <icon name="volume-down" scale="2"></icon>
                 </a>
 
                 <a href="javascript:;;" class="btn btn-secondary btn-volume drop-control" @click="increaseVolume()">
                     <icon name="volume-up" scale="2"></icon>
-                </a>
+                </a> -->
             </div>
 
             <div class="volume-level">
@@ -37,38 +37,30 @@
         </div>
         <div v-else>
             <a href="javascript:;;" @click="togglePlayback" class="drop-control" v-if="playing">
-                <icon name="pause-circle" scale="8" @click="togglePlayHandler" class="drop-control-single"></icon>
+                <icon name="pause-circle" scale="8" @click="togglePlayHandler" class="drop-control-single text-muted"></icon>
             </a>
             <a href="javascript:;;" @click="togglePlayHandler" class="drop-control" v-else>
-                <icon name="play-circle" scale="8" class="drop-control-single"></icon>
+                <icon name="play-circle" scale="8" class="drop-control-single text-muted"></icon>
             </a>
 
-            <!--
-            <a href="javascript:;;" class="btn btn-secondary btn-volume drop-control" @click="lowerVolume()">
-            <icon name="volume-down" scale="2"></icon>
-        </a>
-
-        <a href="javascript:;;" class="btn btn-secondary btn-volume drop-control" @click="increaseVolume()">
-        <icon name="volume-up" scale="2"></icon>
-    </a> -->
-    <div class="volume-level">
-        <vue-slider
-            @drag-start="setValue(value)"
-            @drag-end="setValue(value)"
-            v-model="value"
-            :processStyle="processStyle"
-            :bgStyle="bgStyle"
-            :clickable="false"
-            :tooltip="false"
-            :min="0"
-            :max="1"
-            :interval=".10"
-            :setValue="value"
-        >
-        </vue-slider>
+            <div class="volume-level">
+                <vue-slider
+                    @drag-start="setValue(value)"
+                    @drag-end="setValue(value)"
+                    v-model="value"
+                    :processStyle="processStyle"
+                    :bgStyle="bgStyle"
+                    :clickable="false"
+                    :tooltip="false"
+                    :min="0"
+                    :max="1"
+                    :interval=".10"
+                    :setValue="value"
+                >
+                </vue-slider>
+            </div>
+        </div>
     </div>
-</div>
-</div>
 </template>
 
 <script>
@@ -136,13 +128,21 @@ export default {
     margin: 10px 0 0 0;
     padding: 0;
 }
+.btn-secondary {
+    color: #292b2c;
+    background: rgba(255, 255, 255, .5);
+    border: 1px solid #FFF;
+}
 .btn-secondary:hover {
-    color: powderblue;
-    background: #292b2c;
-    border: 1px solid powderblue;
+    color: #4193D3;
+    background: rgba(99, 108, 114, .5);
+    border: 1px solid #4193D3;
 }
 .drop-control {
     margin: 5px;
+}
+.drop-control:hover {
+    color: #4193D3 !important;
 }
 .drop-control-single {
     color: #FFF;

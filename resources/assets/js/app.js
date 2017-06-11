@@ -49,7 +49,7 @@ const app = new Vue({
             errors: [],
             show: true,
             backdrop: '',
-            drop: ''
+            singledrop: ''
         }
     },
     created() {
@@ -61,9 +61,8 @@ const app = new Vue({
         });
 
         EventBus.$on('expandDrop', (drop) => {
-
-            this.drop = drop;
-
+            this.singledrop = drop;
+            
             this.show = (this.show) ? !this.show : this.show = true;
 
             this.changeBackground();

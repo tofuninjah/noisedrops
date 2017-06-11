@@ -2,33 +2,49 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+
+use Cache;
+use GuzzleHttp\Client as Guzzle;
 use Illuminate\Support\Facades\DB;
-use App\Http\Requests;
 
 class DropController extends Controller
 {
+    /**
+     * The Guzzle client.
+     *
+     * @var Guzzle
+     */
+    protected $guzzle;
+
+    /**
+     * Create a new DropController instance.
+     *
+     * @param Guzzle $guzzle
+     */
+    public function __construct(Guzzle $guzzle)
+    {
+        $this->guzzle = $guzzle;
+    }
+
     public function index()
     {
-        return view('/');
+        return $this->fetchFeed();
     }
 
-    public function getDrop()
-    {
-        $id = 5;
-        $filename = md5($id . microtime());
-
-        dd($filename);
-        return view('/');
-    }
-
-    public function getDrops($id = null)
+    /**
+     * Fetch the Noisedrops feed.
+     *
+     * @return array
+     */
+    protected function fetchFeed()
     {
 
-        $drops = DB::table('drops')
-            ->join('backdrops', 'drops.id', '=', 'backdrops.id_drops')
-            ->get();
+        return Cache::remember('drops', 60 * 24 * 7, function() {
 
-        return response()->json($drops);
+            $endpoint = 'https://api.simplecast.com/v1/podcasts/3085/episodes.json?api_key='
+                        . config('services.simplecast.token');
+
+            return json_decode($this->guzzle->get($endpoint)->getBody());
+        });
     }
 }

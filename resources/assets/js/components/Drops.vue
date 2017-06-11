@@ -5,24 +5,26 @@
                 v-for="(drop, index) in droplets"
                 v-bind:index = "index"
                 v-bind:key = "index.id"
-                v-bind:title = "drop.name"
-                v-bind:link = "drop.link"
+                v-bind:title = "drop.title"
                 v-bind:description = "drop.description"
-                v-bind:filename = "drop.filename"
+                v-bind:filename = "drop.audio_url"
             >
-                <div class="card" style="width: 18rem;">
-                    <a href="javascript:;;" class="card__expand" style="position: absolute;" @click="expandDrop(drop.link, drop.filename)">
-                        <icon name="arrows-alt" scale="2" class="icon__expand"></icon>
-                    </a>
-
-                    <img class="card-img-top" v-lazy="drop.link" alt="Card image caption" width="100%" height="100%">
-
-                    <div class="card-block">
-                        <h4 class="card-title">{{ drop.name }}</h4>
+                <div class="card card-inverse">
+                    <img class="card-img" :src="drop.images.small" alt="Card image" v-lazy="drop.images.thumb">
+                    <div class="card-img-overlay">
+                        <a href="javascript:;;" class="card__expand" style="position: absolute;" @click="expandDrop(drop.images.large, drop.audio_url)">
+                            <icon name="arrows-alt" scale="2" class="icon__expand"></icon>
+                        </a>
+                        <h4 class="card-title">{{ drop.title }}</h4>
                         <p class="card-text">{{ drop.description }}</p>
-                        <audio-player :sources="[drop.filename]" :single="false" :loop="true" :preload="false"></audio-player>
+                        <p class="card-text"><small class="text-muted">Houston, TX</small></p>
+
+                        <div class="audio-player__container">
+                            <audio-player :sources="[drop.audio_url]" :single="false" :loop="true" :preload="false" :html5="true"></audio-player>
+                        </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
@@ -66,14 +68,28 @@
 <style scoped>
     .card {
         margin: 20px 0 0 0;
+        max-width: 225px;
+        min-width: 215px;
+        min-height: 295px;
+        border: 1px solid #e5e7e8;
+    }
+    .card-img {
+        opacity: .5;
     }
     .card-img-top {
-        max-height: 150px;
+        max-height: 125px;
+    }
+    .card-title {
+        width: 100%;
+        color: #434a4f;
+        font-size: 18px;
+        min-height: 50px;
+        padding-right: 15px;
     }
     .card__expand {
         right: 10px;
         top: 10px;
-        color: #FFF;
+        color: #636c72;
         position: absolute;
         opacity: .5;
     }
@@ -82,15 +98,22 @@
     }
     .card-text {
         font-size: 12px;
+        color: #434a4f;
+    }
+    .audio-player__container {
+        position: absolute;
+        bottom: 0;
+        min-width: 220px;
+        padding: 10px;
+        margin-left: -20px;
+        margin-right: -20px;
     }
     @media (min-width: 768px) {
         .card {
             margin: 20px 15px 0 15px;
         }
     }
-
     img[lazy=loading] {
-        /*your style here*/
         margin: 0 auto;
         width: 75px;
         height: 75px;

@@ -3,15 +3,15 @@
         <div class="d-flex justify-content-between drop-container">
             <div class="align-self-center">
                 <a href="javascript:;;" class="card__back" style="" @click="goBack">
-                    <icon name="chevron-left" scale="4" class="icon__left"></icon>
+                    <icon name="chevron-left" scale="4" class="icon__left text-muted"></icon>
                 </a>
             </div>
             <div class="align-self-center icon__play text-center">
-                <audio-player :sources="drop" :loop="true" :single="true" :autoplay="true" :preload="false"></audio-player>
+                <audio-player :sources="singledrop" :loop="true" :single="true" :preload="false" :html5="true"></audio-player>
             </div>
             <div class="align-self-center">
-                <a href="javascript:;;" class="card__forward" style="" @click="goBack">
-                    <icon name="chevron-right" scale="4" class="icon__right"></icon>
+                <a href="javascript:;;" class="card__forward" @click="goBack">
+                    <icon name="chevron-right" scale="4" class="icon__right text-muted"></icon>
                 </a>
             </div>
         </div>
@@ -24,20 +24,17 @@ import { EventBus } from '../app.js';
 
 export default {
     props: [
-        'drop'
+        'singledrop'
     ],
     data() {
-        return {
-            audioSources: [
-                'https://s3-us-west-2.amazonaws.com/noisedrops/basketball.mp3'
-            ]
-        }
+        return {}
     },
     components: {
         'AudioPlayer': AudioPlayer
     },
     mounted() {
         console.log('a Drop Component mounted.')
+        console.warn(this.singledrop)
     },
     methods: {
         goBack() {
@@ -67,11 +64,10 @@ h1, h2, h3, h4, h5, h6 {
     min-width: 200px;
 }
 .icon__left, .icon__right {
-    color: #FFF;
     opacity: .6;
 }
 .icon__left:hover, .icon__right:hover {
     opacity: 1;
-    color: powderblue;
+    color: #4193D3;
 }
 </style>
