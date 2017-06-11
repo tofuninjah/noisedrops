@@ -6,7 +6,7 @@
             description="Noisedrops generates ambient sounds that allow you to concentrate or focus by drowning out distracting noises.  May also be used for relaxation."
             quote="Vue is a progressive framework for building user interfaces."
             hashtags="noisedrops, concentrate, focus, relax, whitenoise"
-            media="http://www.noisedrops.com/images/noisedrops-dark.svg"
+            media="http://www.noisedrops.com/images/noisedrops-dark.png"
         >
             <footer class="container-fluid d-flex justify-content-around footer">
                 <network network="facebook">
