@@ -2,11 +2,11 @@
     <div>
         <div v-if="!single">
             <div class="d-flex justify-content-around">
-                <a href="javascript:;;" @click="togglePlayHandler" class="btn btn-secondary btn-play drop-control text-muted" v-if="playing">
-                    <icon name="pause-circle" scale="2" @click="togglePlayHandler"></icon>
+                <a href="javascript:;;" @click="togglePlayHandler" class="btn btn-secondary btn-play drop-control" v-if="playing">
+                    <icon name="pause" scale="2" @click="togglePlayHandler"></icon>
                 </a>
-                <a href="javascript:;;" @click="togglePlayHandler" class="btn btn-secondary btn-play drop-control text-muted" v-else>
-                    <icon name="play-circle" scale="2"></icon>
+                <a href="javascript:;;" @click="togglePlayHandler" class="btn btn-secondary btn-play drop-control" v-else>
+                    <icon name="play" scale="2"></icon>
                 </a>
                 <!--
                 <a href="javascript:;;" class="btn btn-secondary btn-volume drop-control" @click="lowerVolume()">
@@ -37,10 +37,10 @@
         </div>
         <div v-else>
             <a href="javascript:;;" @click="togglePlayback" class="drop-control" v-if="playing">
-                <icon name="pause-circle" scale="8" @click="togglePlayHandler" class="drop-control-single text-muted"></icon>
+                <icon name="pause-circle" scale="8" @click="togglePlayHandler" class="drop-control-single "></icon>
             </a>
             <a href="javascript:;;" @click="togglePlayHandler" class="drop-control" v-else>
-                <icon name="play-circle" scale="8" class="drop-control-single text-muted"></icon>
+                <icon name="play-circle" scale="8" class="drop-control-single"></icon>
             </a>
 
             <div class="volume-level">
@@ -129,8 +129,8 @@ export default {
     padding: 0;
 }
 .btn-secondary {
-    color: #292b2c;
-    background: rgba(255, 255, 255, .5);
+    color: #3a96d7;
+    background: rgba(255, 255, 255, .8);
     border: 1px solid #FFF;
 }
 .btn-secondary:hover {
@@ -145,11 +145,10 @@ export default {
     color: #4193D3 !important;
 }
 .drop-control-single {
-    color: #FFF;
+    color: #3a96d7;
     opacity: .5
 }
 .drop-control-single:hover {
-    color: #FFF;
     opacity: 1;
 }
 </style>

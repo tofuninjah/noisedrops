@@ -17,7 +17,7 @@
                         </a>
                         <h4 class="card-title">{{ drop.title }}</h4>
                         <p class="card-text">{{ drop.description }}</p>
-                        <p class="card-text"><small class="text-muted">Houston, TX</small></p>
+                        <p class="card-text text-right nobgcolor"><small>Houston, TX</small></p>
 
                         <div class="audio-player__container">
                             <audio-player :sources="[drop.audio_url]" :single="false" :loop="true" :preload="false" :html5="true"></audio-player>
@@ -68,45 +68,52 @@
 <style scoped>
     .card {
         margin: 20px 0 0 0;
-        max-width: 225px;
-        min-width: 215px;
-        min-height: 295px;
         border: 1px solid #e5e7e8;
+        min-width: 295px;
+        min-height: 295px;
     }
     .card-img {
-        opacity: .5;
+        opacity: .8;
     }
     .card-img-top {
         max-height: 125px;
     }
     .card-title {
         width: 100%;
-        color: #434a4f;
-        font-size: 18px;
+        color: #F7F7F7;
+        text-shadow: 1px 1px 5px #434a4f;
+        font-size: 22px;
+        font-weight: bold;
         min-height: 50px;
         padding-right: 15px;
     }
     .card__expand {
         right: 10px;
         top: 10px;
-        color: #636c72;
+        color: #F7F7F7;
         position: absolute;
         opacity: .5;
     }
     .card__expand:hover {
+        color: #3a96d7;
         opacity: 1;
     }
     .card-text {
-        font-size: 12px;
-        color: #434a4f;
+        font-size: 16px;
+        font-weight: lighter;
+        text-shadow: 1px 1px 5px #000;
+        color: #F7F7F7;
     }
     .audio-player__container {
+        min-width: 295px;
         position: absolute;
-        bottom: 0;
-        min-width: 220px;
+        bottom: 10px;
         padding: 10px;
         margin-left: -20px;
         margin-right: -20px;
+    }
+    .nobgcolor {
+        background-color: transparent !important;
     }
     @media (min-width: 768px) {
         .card {
