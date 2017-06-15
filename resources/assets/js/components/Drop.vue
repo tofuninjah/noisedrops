@@ -7,7 +7,7 @@
                 </a>
             </div>
             <div class="align-self-center icon__play text-center">
-                <audio-player :sources="singledrop" :loop="true" :single="true" :preload="false" :html5="true"></audio-player>
+                <audio-player :sources="singledrop" :loop="true" :single="true" :preload="true" :autoplay="true" :html5="true"></audio-player>
             </div>
             <div class="align-self-center">
                 <a href="javascript:;;" class="card__forward" @click="goBack">
