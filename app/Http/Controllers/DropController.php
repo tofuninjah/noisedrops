@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 
-use Cache;
+//use Cache;
 use GuzzleHttp\Client as Guzzle;
-use Illuminate\Support\Facades\DB;
 
 class DropController extends Controller
 {
@@ -39,12 +38,16 @@ class DropController extends Controller
     protected function fetchFeed()
     {
 
-        return Cache::remember('drops', 60 * 24 * 7, function() {
+        //return Cache::remember('drops', 60 * 24 * 7, function () {
+        $headers = [
+            'Authorization' => 'Bearer ' . env('SIMPLECAST_TOKEN')
+        ];
 
-            $endpoint = 'https://api.simplecast.com/v1/podcasts/3085/episodes.json?api_key='
-                        . config('services.simplecast.token');
+        $url = 'https://api.simplecast.com/podcasts/' . env('SIMPLECAST_PODCAST_ID') . '/episodes';
 
-            return json_decode($this->guzzle->get($endpoint)->getBody());
-        });
+        return $this->guzzle->request('GET', $url, [
+            'headers'  => $headers
+        ])->getBody();
+        //});
     }
 }

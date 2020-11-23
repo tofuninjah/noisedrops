@@ -15,19 +15,10 @@
                 <network network="twitter">
                     <a href="javascript:;;" class="footer__link"><icon name="twitter-square" scale="2" class="footer__icon"></icon></a>
                 </network>
-                <network network="googleplus">
-                    <a href="javascript:;;" class="footer__link"><icon name="google-plus-square" scale="2" class="footer__icon"></icon></a>
-                </network>
                 <network network="pinterest">
                     <a href="javascript:;;" class="footer__link"><icon name="pinterest-square" scale="2" class="footer__icon"></icon></a>
                 </network>
-                <network network="linkedin">
-                    <a href="javascript:;;" class="footer__link"><icon name="linkedin-square" scale="2" class="footer__icon"></icon></a>
-                </network>
-                <network network="weibo">
-                    <a href="javascript:;;" class="footer__link"><icon name="weibo" scale="2" class="footer__icon"></icon></a>
-                </network>
-            </footer>
+             </footer>
         </social-sharing>
     </nav>
 </template>

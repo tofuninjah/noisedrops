@@ -7,12 +7,12 @@
                 v-bind:key = "index.id"
                 v-bind:title = "drop.title"
                 v-bind:description = "drop.description"
-                v-bind:filename = "drop.audio_url"
+                v-bind:filename = "drop.enclosure_url"
             >
                 <div class="card card-inverse">
-                    <img class="card-img" :src="drop.images.small" alt="Card image" v-lazy="drop.images.thumb">
+                    <img class="card-img" :src="drop.image_url" alt="Card image" v-lazy="drop.image_url">
                     <div class="card-img-overlay">
-                        <a href="javascript:;;" class="card__expand" style="position: absolute;" @click="expandDrop(drop.images.large, drop.audio_url)">
+                        <a href="javascript:;;" class="card__expand" style="position: absolute;" @click="expandDrop(drop.image_url, drop.enclosure_url)">
                             <icon name="arrows-alt" scale="2" class="icon__expand"></icon>
                         </a>
                         <h4 class="card-title">{{ drop.title }}</h4>
@@ -20,7 +20,7 @@
                         <p class="card-text text-right nobgcolor"><small>Houston, TX</small></p>
 
                         <div class="audio-player__container">
-                            <audio-player :sources="[drop.audio_url]" :single="false" :loop="true" :preload="false" :html5="true"></audio-player>
+                            <audio-player :sources="[drop.enclosure_url]" :single="false" :loop="true" :preload="false" :html5="true"></audio-player>
                         </div>
                     </div>
                 </div>
@@ -46,7 +46,7 @@
         mounted() {
             axios.get("/drops")
             .then(response => {
-                this.droplets = response.data;
+                this.droplets = response.data.collection;
             })
             .catch(e => {
                 this.errors.push(e);
@@ -74,6 +74,7 @@
     }
     .card-img {
         opacity: .8;
+        width: 295px;
     }
     .card-img-top {
         max-height: 125px;
