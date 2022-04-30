@@ -7,12 +7,12 @@
                 v-bind:key = "index.id"
                 v-bind:title = "drop.title"
                 v-bind:description = "drop.description"
-                v-bind:filename = "drop.enclosure_url"
+                v-bind:filename = "drop.filename"
             >
                 <div class="card card-inverse">
-                    <img class="card-img" :src="drop.image_url" alt="Card image" v-lazy="drop.image_url">
+                    <img class="card-img" :src="'/images/hero/tunnels-1.jpg'" alt="Card image" v-lazy="'/images/hero/tunnels-1.jpg'">
                     <div class="card-img-overlay">
-                        <a href="javascript:;;" class="card__expand" style="position: absolute;" @click="expandDrop(drop.image_url, drop.enclosure_url)">
+                        <a href="javascript:;;" class="card__expand" style="position: absolute;" @click="expandDrop('images/hero/tunnels-1.jpg', drop.filename)">
                             <icon name="arrows-alt" scale="2" class="icon__expand"></icon>
                         </a>
                         <h4 class="card-title">{{ drop.title }}</h4>
@@ -20,7 +20,7 @@
                         <p class="card-text text-right nobgcolor"><small>Houston, TX</small></p>
 
                         <div class="audio-player__container">
-                            <audio-player :sources="[drop.enclosure_url]" :single="false" :loop="true" :preload="false" :html5="true"></audio-player>
+                            <audio-player :sources="[drop.filename]" :single="false" :loop="true" :preload="false" :html5="true"></audio-player>
                         </div>
                     </div>
                 </div>
@@ -44,9 +44,9 @@
             }
         },
         mounted() {
-            axios.get("/drops")
+            axios.get("/drop")
             .then(response => {
-                this.droplets = response.data.collection;
+                this.droplets = response.data;
             })
             .catch(e => {
                 this.errors.push(e);
