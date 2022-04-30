@@ -59,7 +59,7 @@ class CreateBackdropsTable extends Migration
             [
                 'name' => 'Night out to Dinner',
                 'link' => '/images/hero/restaurant-1.jpg',
-                'description' => 'Grab a reservation and bring your appitite.',
+                'description' => 'Grab a reservation and bring your appetite.',
                 'id_drops' => 6
             ]
         ]);

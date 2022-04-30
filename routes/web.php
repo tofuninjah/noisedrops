@@ -15,4 +15,6 @@ Route::get('/', function () {
     return view('index');
 });
 
+
+Route::get('drop', 'DropController@index');
 Route::get('drops/{id?}', 'DropController@index');
