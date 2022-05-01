@@ -32,10 +32,7 @@ export default {
     components: {
         'AudioPlayer': AudioPlayer
     },
-    mounted() {
-        console.log('a Drop Component mounted.')
-        console.warn(this.singledrop)
-    },
+    mounted() {},
     methods: {
         goBack() {
             EventBus.$emit('goBack', true);

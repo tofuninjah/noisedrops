@@ -86,7 +86,6 @@
         text-shadow: 1px 1px 5px #434a4f;
         font-size: 22px;
         font-weight: bold;
-        min-height: 50px;
         padding-right: 15px;
     }
     .card__expand {
