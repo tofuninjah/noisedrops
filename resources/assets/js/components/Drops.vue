@@ -5,17 +5,16 @@
                 v-for="(drop, index) in droplets"
                 v-bind:index = "index"
                 v-bind:key = "index.id"
-                v-bind:title = "drop.title"
                 v-bind:description = "drop.description"
                 v-bind:filename = "drop.filename"
             >
                 <div class="card card-inverse">
-                    <img class="card-img" :src="'/images/hero/tunnels-1.jpg'" alt="Card image" v-lazy="'/images/hero/tunnels-1.jpg'">
+                    <img class="card-img" :src="drop.image" alt="Card image" v-lazy="drop.image">
                     <div class="card-img-overlay">
-                        <a href="javascript:;;" class="card__expand" style="position: absolute;" @click="expandDrop('images/hero/tunnels-1.jpg', drop.filename)">
+                        <a href="javascript:;;" class="card__expand" style="position: absolute;" @click="expandDrop(drop.image, drop.filename)">
                             <icon name="arrows-alt" scale="2" class="icon__expand"></icon>
                         </a>
-                        <h4 class="card-title">{{ drop.title }}</h4>
+                        <h4 class="card-title">{{ drop.name }}</h4>
                         <p class="card-text">{{ drop.description }}</p>
                         <p class="card-text text-right nobgcolor"><small>Houston, TX</small></p>
 
@@ -76,9 +75,11 @@
         opacity: .8;
         width: 295px;
     }
-    .card-img-top {
-        max-height: 125px;
+
+    .card-img-overlay {
+      bottom: -15px;
     }
+
     .card-title {
         width: 100%;
         color: #F7F7F7;
