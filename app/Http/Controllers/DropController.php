@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 
 //use Cache;
 use GuzzleHttp\Client as Guzzle;
+use App\Drop;
+use App\Backdrop;
 
 class DropController extends Controller
 {
@@ -27,7 +29,7 @@ class DropController extends Controller
 
     public function index()
     {
-        return $this->fetchFeed();
+        return $this->fetchDrops();
     }
 
     /**
@@ -49,5 +51,17 @@ class DropController extends Controller
             'headers'  => $headers
         ])->getBody();
         //});
+    }
+
+    /**
+     * Fetch the Noisedrops from S3.
+     *
+     * @return array
+     */
+    protected function fetchDrops()
+    {
+        $drops = Drop::all();
+
+        return $drops;
     }
 }

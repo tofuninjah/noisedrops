@@ -11,7 +11,7 @@ class Drop extends Model
      */
     public function backdrops()
     {
-        return $this->hasMany('App\background');
+        return $this->hasMany('App\Backdrop');
     }
 
     /**
@@ -20,5 +20,9 @@ class Drop extends Model
     public function tags()
     {
         return $this->belongsToMany('App\Tag');
+    }
+
+    public function getDrops() {
+        echo 'here';
     }
 }
