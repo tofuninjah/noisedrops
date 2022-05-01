@@ -8,14 +8,6 @@
                 <a href="javascript:;;" @click="togglePlayHandler" class="btn btn-secondary btn-play drop-control" v-else>
                     <icon name="play" scale="2"></icon>
                 </a>
-                <!--
-                <a href="javascript:;;" class="btn btn-secondary btn-volume drop-control" @click="lowerVolume()">
-                    <icon name="volume-down" scale="2"></icon>
-                </a>
-
-                <a href="javascript:;;" class="btn btn-secondary btn-volume drop-control" @click="increaseVolume()">
-                    <icon name="volume-up" scale="2"></icon>
-                </a> -->
             </div>
 
             <div class="volume-level">
@@ -93,7 +85,6 @@ export default {
     },
     mounted() {
         this.setVolume(this.value);
-        console.log('Audio Player Component mounted.');
     },
     methods: {
         togglePlayHandler() {
@@ -120,9 +111,6 @@ export default {
 }
 .btn-play {
     min-width: 100px;
-}
-.btn-volume {
-    min-width: 75px;
 }
 .volume-level {
     margin: 10px 0 0 0;

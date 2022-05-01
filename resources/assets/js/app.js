@@ -54,14 +54,12 @@ const app = new Vue({
     },
     created() {
         EventBus.$on('addDropBackground', (dropBackground) => {
-            console.log('addDropBackground: ', dropBackground);
             this.backdrop = dropBackground;
 
             this.changeBackground();
         });
 
         EventBus.$on('expandDrop', (drop) => {
-            console.log(drop);
             this.singledrop = drop;
             
             this.show = (this.show) ? !this.show : this.show = true;
@@ -83,10 +81,7 @@ const app = new Vue({
     mounted() {},
     methods: {
         changeBackground() {
-            console.log('changing background...');
             var el = document.getElementsByTagName('body')[0];
-            console.log(el);
-            console.log(this.backdrop);
             el.style.background = "#E9EFD4 url("+this.backdrop+") no-repeat center center fixed";
             el.style.backgroundSize = "cover";
         }
