@@ -2,8 +2,8 @@ name: Scheduled Rebuild
 
 on:
   schedule:
-    # Run every 6 hours — adjust as needed (cron UTC)
-    - cron: '0 */6 * * *'
+    # Run every Monday at 9am UTC
+    - cron: '0 9 * * 1'
   workflow_dispatch: # allow manual trigger
 
 jobs:
