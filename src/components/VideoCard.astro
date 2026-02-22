@@ -1,0 +1,46 @@
+---
+import type { NDVideo } from '../lib/youtube';
+import { formatDate } from '../lib/format';
+
+interface Props {
+  video: NDVideo;
+  showPlaylist?: boolean;
+}
+
+const { video, showPlaylist = false } = Astro.props;
+---
+
+<article class="group bg-surface-subtle border border-surface-muted rounded-2xl overflow-hidden hover:border-accent/40 transition-colors">
+  <a href={video.youtubeUrl} target="_blank" rel="noopener noreferrer" class="block">
+    <div class="aspect-video overflow-hidden relative">
+      <img
+        src={video.thumbnailUrl}
+        alt={video.title}
+        loading="lazy"
+        decoding="async"
+        class="w-full h-full object-cover opacity-75 group-hover:opacity-100 transition-opacity"
+      />
+      <span class="absolute bottom-2 right-2 bg-black/70 text-white text-xs font-medium px-1.5 py-0.5 rounded">
+        {video.durationLabel}
+      </span>
+    </div>
+    <div class="p-4 pb-2">
+      <h3 class="font-medium text-sm text-ink group-hover:text-accent transition-colors leading-snug line-clamp-2">
+        {video.title}
+      </h3>
+      <p class="mt-2 text-xs text-ink-faint">{formatDate(video.publishedAt)}</p>
+    </div>
+  </a>
+  {
+    showPlaylist && video.playlistTitle && (
+      <div class="px-4 pb-4">
+        <a
+          href={`/rooms/${video.playlistId}`}
+          class="text-xs text-ink-faint hover:text-ink-muted transition-colors"
+        >
+          {video.playlistTitle}
+        </a>
+      </div>
+    )
+  }
+</article>

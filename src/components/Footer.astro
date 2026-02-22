@@ -1,0 +1,20 @@
+---
+import Container from './Container.astro';
+---
+
+<footer class="border-t border-surface-muted py-10 mt-20">
+  <Container class="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-ink-faint">
+    <p>© {new Date().getFullYear()} Noisedrops. All rights reserved.</p>
+    <div class="flex items-center gap-5">
+      <a
+        href="https://www.youtube.com/@noisedrops"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hover:text-ink-muted transition-colors"
+      >
+        YouTube
+      </a>
+      <a href="/about" class="hover:text-ink-muted transition-colors">About</a>
+    </div>
+  </Container>
+</footer>

@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Container from '../components/Container.astro';
+---
+
+<BaseLayout
+  title="About — Noisedrops"
+  description="What is Noisedrops? A calm, minimal ambient sound library built for focus, rest, and being present."
+>
+  <section class="py-16">
+    <Container>
+      <div class="max-w-2xl">
+        <h1 class="text-3xl font-semibold text-ink mb-8">About Noisedrops</h1>
+
+        <div class="prose-like space-y-6 text-ink-muted leading-relaxed">
+          <p>
+            Noisedrops is an ambient sound library built for people who need a room, not a song.
+            Long videos. Real environments. No narration.
+          </p>
+
+          <p>
+            Every upload is a place — a laundromat at 11pm, a train moving through rain, a coffee
+            shop filling up slowly. You put it on, you get into your work, and the room does the
+            rest.
+          </p>
+
+          <h2 class="text-xl font-medium text-ink pt-4">Ambient Rooms</h2>
+          <p>
+            Each "room" on the site is a YouTube playlist — a category of similar soundscapes.
+            Transit ambience. Rain. Cozy public spaces. New rooms get added as new environments
+            are recorded.
+          </p>
+          <p>
+            Only long-form videos appear here. No Shorts. Nothing under a minute. If it's here, it
+            was made to be played for a while.
+          </p>
+
+          <h2 class="text-xl font-medium text-ink pt-4">The Channel</h2>
+          <p>
+            All content lives on YouTube. This site is the quiet front door — a calmer way to
+            browse and find what you need.
+          </p>
+        </div>
+
+        <div class="mt-12 flex flex-col sm:flex-row gap-4">
+          <a
+            href="https://www.youtube.com/@noisedrops"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-block bg-accent text-white text-sm font-medium px-6 py-3 rounded-xl hover:bg-accent/80 transition-colors text-center"
+          >
+            Visit the Channel
+          </a>
+          <a
+            href="/rooms"
+            class="inline-block border border-surface-muted text-ink-muted text-sm font-medium px-6 py-3 rounded-xl hover:border-ink-faint hover:text-ink transition-colors text-center"
+          >
+            Browse Rooms
+          </a>
+        </div>
+      </div>
+    </Container>
+  </section>
+</BaseLayout>

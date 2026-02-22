@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Container from '../../components/Container.astro';
+import PlaylistCard from '../../components/PlaylistCard.astro';
+import { getPlaylists } from '../../lib/youtube';
+
+const playlists = await getPlaylists();
+---
+
+<BaseLayout
+  title="Rooms — Noisedrops"
+  description="Browse ambient soundscape playlists. Each room is a long-form audio environment."
+>
+  <section class="py-16">
+    <Container>
+      <div class="mb-12">
+        <h1 class="text-3xl font-semibold text-ink">Rooms</h1>
+        <p class="mt-3 text-ink-muted max-w-lg">
+          Each room is a curated collection of long-form ambient sounds. Find your space.
+        </p>
+      </div>
+
+      {
+        playlists.length === 0 ? (
+          <p class="text-ink-faint text-sm">No rooms found yet. Check back soon.</p>
+        ) : (
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {playlists.map((pl) => (
+              <PlaylistCard playlist={pl} />
+            ))}
+          </div>
+        )
+      }
+    </Container>
+  </section>
+</BaseLayout>

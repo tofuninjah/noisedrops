@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Container from '../components/Container.astro';
+import VideoCard from '../components/VideoCard.astro';
+import { getLatestVideos } from '../lib/youtube';
+
+const videos = await getLatestVideos(12);
+---
+
+<BaseLayout
+  title="Noisedrops — Ambient Sound Library"
+  description="A calm, minimal library of long-form ambient soundscapes. No Shorts. Browse and press play."
+>
+  <!-- Hero -->
+  <section class="pt-24 pb-16 text-center">
+    <Container>
+      <p class="text-xs uppercase tracking-widest text-ink-faint mb-6">Ambient Sound Library</p>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-semibold text-ink leading-tight max-w-2xl mx-auto">
+        You're not watching a video —<br />you're in a room.
+      </h1>
+      <p class="mt-6 text-ink-muted max-w-md mx-auto leading-relaxed">
+        Long-form ambient soundscapes. Calm spaces for focus, rest, and presence.
+      </p>
+      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          href="/rooms"
+          class="inline-block bg-accent text-white text-sm font-medium px-6 py-3 rounded-xl hover:bg-accent/80 transition-colors"
+        >
+          Browse Rooms
+        </a>
+        <a
+          href="https://www.youtube.com/@noisedrops"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-block border border-surface-muted text-ink-muted text-sm font-medium px-6 py-3 rounded-xl hover:border-ink-faint hover:text-ink transition-colors"
+        >
+          YouTube Channel
+        </a>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Latest uploads -->
+  <section class="py-12">
+    <Container>
+      <div class="flex items-center justify-between mb-8">
+        <h2 class="text-lg font-medium text-ink">Latest Uploads</h2>
+        <a href="/rooms" class="text-sm text-ink-muted hover:text-ink transition-colors">
+          All rooms →
+        </a>
+      </div>
+
+      {
+        videos.length === 0 ? (
+          <p class="text-ink-faint text-sm">No videos found. Check back soon.</p>
+        ) : (
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {videos.map((v) => (
+              <VideoCard video={v} showPlaylist={true} />
+            ))}
+          </div>
+        )
+      }
+    </Container>
+  </section>
+</BaseLayout>

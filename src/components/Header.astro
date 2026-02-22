@@ -1,0 +1,34 @@
+---
+import Container from './Container.astro';
+
+const navLinks = [
+  { href: '/rooms', label: 'Rooms' },
+  { href: '/about', label: 'About' },
+];
+
+const pathname = new URL(Astro.request.url).pathname;
+---
+
+<header class="border-b border-surface-muted py-5">
+  <Container class="flex items-center justify-between">
+    <a href="/" class="opacity-90 hover:opacity-100 transition-opacity">
+      <img src="/noisedrops.png" alt="Noisedrops" class="h-8 w-auto" />
+    </a>
+    <nav class="flex items-center gap-6">
+      {
+        navLinks.map((link) => (
+          <a
+            href={link.href}
+            class={`text-sm transition-colors ${
+              pathname.startsWith(link.href)
+                ? 'text-ink'
+                : 'text-ink-muted hover:text-ink'
+            }`}
+          >
+            {link.label}
+          </a>
+        ))
+      }
+    </nav>
+  </Container>
+</header>

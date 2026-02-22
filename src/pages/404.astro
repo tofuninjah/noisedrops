@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Container from '../components/Container.astro';
+---
+
+<BaseLayout title="404 — Noisedrops" description="Page not found.">
+  <section class="py-32 text-center">
+    <Container>
+      <p class="text-xs uppercase tracking-widest text-ink-faint mb-4">404</p>
+      <h1 class="text-3xl font-semibold text-ink mb-4">Room not found</h1>
+      <p class="text-ink-muted mb-10">This room doesn't exist — or maybe the sound faded out.</p>
+      <a
+        href="/"
+        class="inline-block bg-accent text-white text-sm font-medium px-6 py-3 rounded-xl hover:bg-accent/80 transition-colors"
+      >
+        Back to home
+      </a>
+    </Container>
+  </section>
+</BaseLayout>
